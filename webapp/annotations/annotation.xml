@@ -5,14 +5,44 @@
     <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
         <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
     </edmx:Reference>
-    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Communication.xml">
-        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
-    </edmx:Reference>
     <edmx:Reference Uri="/odata/v4/TradeSpendsService/$metadata">
         <edmx:Include Namespace="TradeSpendsService"/>
     </edmx:Reference>
     <edmx:DataServices>
         <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local">
+            <Annotations Target="TradeSpendsService.AdapterTypes">
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="adapterTypeStatus"/>
+                            <PropertyValue Property="Label" String="adapterTypeStatus"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="destinationName"/>
+                            <PropertyValue Property="Label" String="destinationName"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="name"/>
+                            <PropertyValue Property="Label" String="name"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="uuid"/>
+                            <PropertyValue Property="Label" String="uuid"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>predelivered</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="TradeSpendsService.AdapterTypes/predelivered">
+                <Annotation Term="Common.Label" String="predelivered"/>
+            </Annotations>
+            <Annotations Target="TradeSpendsService.AdapterTypes_texts/name">
+                <Annotation Term="Common.Label" String="texts/name"/>
+            </Annotations>
         </Schema>
     </edmx:DataServices>
 </edmx:Edmx>
